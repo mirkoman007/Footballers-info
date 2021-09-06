@@ -1,4 +1,4 @@
-package mirkozaper.from.hr.footballersinfo
+package mirkozaper.from.hr.footballersinfo.pages
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,21 +7,23 @@ import android.os.Handler
 import android.os.Looper
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import mirkozaper.from.hr.footballersinfo.MainActivity
+import mirkozaper.from.hr.footballersinfo.R
 
-class SplashScreen : AppCompatActivity() {
+class SplashScreenActivity : AppCompatActivity() {
 
     private val SPLASH_TIME:Long=3000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.splash_screen)
+        setContentView(R.layout.activity_splash_screen)
 
-        val splashLogoAnimation=AnimationUtils.loadAnimation(this,R.anim.splash_logo_animation)
+        val splashLogoAnimation=AnimationUtils.loadAnimation(this, R.anim.splash_logo_animation)
 
         val splashLogo:ImageView= findViewById(R.id.splashLogo)
         splashLogo.startAnimation(splashLogoAnimation)
 
-        val homeIntent= Intent(this@SplashScreen,MainActivity::class.java)
+        val homeIntent= Intent(this@SplashScreenActivity, MainActivity::class.java)
 
 
         Handler(Looper.getMainLooper()).postDelayed({

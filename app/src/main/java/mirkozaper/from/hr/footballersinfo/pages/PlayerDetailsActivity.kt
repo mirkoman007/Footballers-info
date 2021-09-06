@@ -1,60 +1,42 @@
-package mirkozaper.from.hr.footballersinfo
+package mirkozaper.from.hr.footballersinfo.pages
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import mirkozaper.from.hr.footballersinfo.pages.PlayerDetailsActivity
-import mirkozaper.from.hr.footballersinfo.model.Player
-import mirkozaper.from.hr.footballersinfo.repo.PlayersRepository
+import mirkozaper.from.hr.footballersinfo.HeightDisplaySetting
+import mirkozaper.from.hr.footballersinfo.HeightDisplaySettingManager
+import mirkozaper.from.hr.footballersinfo.R
+import mirkozaper.from.hr.footballersinfo.utils.getHeightFormat
 
-class MainActivity : AppCompatActivity() {
+class PlayerDetailsActivity : AppCompatActivity() {
 
-    private val playersRepository=PlayersRepository()
     private lateinit var heightDisplaySettingManager: HeightDisplaySettingManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_player_details)
 
         heightDisplaySettingManager=HeightDisplaySettingManager(this)
 
-        val playersList:RecyclerView=findViewById(R.id.playersList)
+        setTitle(getString(R.string.player_details))
 
-        playersList.layoutManager=LinearLayoutManager(this)
+        val firstName=findViewById<TextView>(R.id.firstName)
+        val lastName=findViewById<TextView>(R.id.lastName)
+        val height=findViewById<TextView>(R.id.height)
 
-        val playerAdapter=PlayerAdapter(){player->
-            showPlayerDetails(player)
-        }
 
-        playersList.adapter=playerAdapter
-
-        val playersObserver= Observer<List<Player>>{player->
-            playerAdapter.submitList(player)
-
-        }
-        playersRepository.players.observe(this,playersObserver)
-
-        playersRepository.loadPlayers()
-    }
-
-    private fun showPlayerDetails(p:Player){
-        val playerDetailsIntent=Intent(this,PlayerDetailsActivity::class.java)
-        playerDetailsIntent.putExtra("key_firstName",p.firstName)
-        playerDetailsIntent.putExtra("key_lastName",p.lastName)
-        playerDetailsIntent.putExtra("key_height",p.height.toString())
-        startActivity(playerDetailsIntent)
+        firstName.text=intent.getStringExtra("key_firstName")
+        lastName.text=intent.getStringExtra("key_lastName")
+        height.text=getHeightFormat(intent.getStringExtra("key_height")!!.toFloat(),heightDisplaySettingManager.getTempDisplaySettings())
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflaer: MenuInflater =menuInflater
+        val inflaer:MenuInflater=menuInflater
         inflaer.inflate(R.menu.settings_menu,menu)
         return true
     }

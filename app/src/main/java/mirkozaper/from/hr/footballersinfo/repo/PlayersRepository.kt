@@ -11,14 +11,17 @@ class PlayersRepository {
 
     fun loadPlayers(){
 
-        var players= listOf(Player("Ivan","Perišić"),
-                Player("Ante","Rebić"),
-                Player("Marko","Livaja"),
-                Player("Robert","Lewandowski"),
-                Player("Kristijan","Lovrić"),
-                Player("Ivica","Ivušić"),
-                Player("Marko","Livaja"),
-                Player("Kylian","Mbappé"))
+        val players= listOf(
+                Player("Marko","Livaja",1.82f),
+                Player("Mario","Pašalić",1.86f),
+                Player("Paulo","Dybala",1.77f),
+                Player("Robert","Lewandowski",1.85f),
+                Player("Ivan","Perišić",1.86f),
+                Player("Ivica","Ivušić",1.95f),
+                Player("Mihael","Žaper",1.88f),
+                Player("Kylian","Mbappé",1.78f),
+                Player("Ante","Rebić",1.85f),
+                Player("Kristijan","Lovrić",1.86f))
 
         _players.setValue(players)
     }
