@@ -8,6 +8,9 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 
 class SplashScreen : AppCompatActivity() {
+
+    private val SPLASH_TIME:Long=3000
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash_screen)
@@ -23,6 +26,6 @@ class SplashScreen : AppCompatActivity() {
         Handler().postDelayed({
             startActivity(homeIntent)
             finish()
-        },splashScreenTimeOut.toLong())
+        },SPLASH_TIME)
     }
 }
