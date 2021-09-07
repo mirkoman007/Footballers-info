@@ -21,9 +21,11 @@ class MainActivity : AppCompatActivity() {
     private val playersRepository=PlayersRepository()
     private lateinit var heightDisplaySettingManager: HeightDisplaySettingManager
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         heightDisplaySettingManager=HeightDisplaySettingManager(this)
 
@@ -93,4 +95,9 @@ class MainActivity : AppCompatActivity() {
 
         dialogBuilder.show()
     }
+
+
+
+
 }
+

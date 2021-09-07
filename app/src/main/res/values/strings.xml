@@ -6,4 +6,6 @@
     <string name="height_info">Height:</string>
     <string name="news">Transfer window ends in 2 weeks</string>
     <string name="your_players">Your players:</string>
+    <string name="age">Age:</string>
+    <string name="position">Position:</string>
 </resources>
