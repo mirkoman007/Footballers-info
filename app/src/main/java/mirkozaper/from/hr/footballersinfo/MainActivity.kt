@@ -56,6 +56,8 @@ class MainActivity : AppCompatActivity() {
         playerDetailsIntent.putExtra("key_firstName",p.firstName)
         playerDetailsIntent.putExtra("key_lastName",p.lastName)
         playerDetailsIntent.putExtra("key_height",p.height.toString())
+        playerDetailsIntent.putExtra("key_position",p.position)
+        playerDetailsIntent.putExtra("key_age",p.age.toString())
         startActivity(playerDetailsIntent)
     }
 

@@ -28,11 +28,15 @@ class PlayerDetailsActivity : AppCompatActivity() {
         val firstName=findViewById<TextView>(R.id.firstName)
         val lastName=findViewById<TextView>(R.id.lastName)
         val height=findViewById<TextView>(R.id.height)
+        val position=findViewById<TextView>(R.id.position)
+        val age=findViewById<TextView>(R.id.age)
 
 
         firstName.text=intent.getStringExtra("key_firstName")
         lastName.text=intent.getStringExtra("key_lastName")
         height.text=getHeightFormat(intent.getStringExtra("key_height")!!.toFloat(),heightDisplaySettingManager.getTempDisplaySettings())
+        position.text=intent.getStringExtra("key_position")
+        age.text=intent.getStringExtra("key_age")
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
