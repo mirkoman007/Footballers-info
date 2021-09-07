@@ -4,4 +4,6 @@
     <string name="player_details">Player Details</string>
     <string name="display_units">Display units</string>
     <string name="height_info">Height:</string>
+    <string name="news">Transfer window ends in 2 weeks</string>
+    <string name="your_players">Your players:</string>
 </resources>
