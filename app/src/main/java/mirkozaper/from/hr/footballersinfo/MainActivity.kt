@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import mirkozaper.from.hr.footballersinfo.pages.PlayerDetailsActivity
 import mirkozaper.from.hr.footballersinfo.model.Player
+import mirkozaper.from.hr.footballersinfo.pages.NewsFragment
 import mirkozaper.from.hr.footballersinfo.repo.PlayersRepository
 
 class MainActivity : AppCompatActivity() {
@@ -41,6 +42,11 @@ class MainActivity : AppCompatActivity() {
 
         }
         playersRepository.players.observe(this,playersObserver)
+
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.newsFrame,NewsFragment())
+            .commit()
 
         playersRepository.loadPlayers()
     }

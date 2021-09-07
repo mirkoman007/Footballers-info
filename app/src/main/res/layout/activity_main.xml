@@ -6,15 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <fragment
-        android:id="@+id/newsFragment"
-        android:name="mirkozaper.from.hr.footballersinfo.pages.NewsFragment"
+    <FrameLayout
+        android:id="@+id/newsFrame"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_news" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/messageTxt"
@@ -26,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newsFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/newsFrame" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/playersList"
