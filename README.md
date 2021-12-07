@@ -1,4 +1,5 @@
 # Footballers-info
+Android application written in Kotlin
 
 <img src="/preview.png" width="200">
 
